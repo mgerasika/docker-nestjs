@@ -6,8 +6,10 @@ import { CatsModule } from './cats/cats.module';
   imports: [
     CatsModule,
     GraphQLModule.forRoot({
+      playground:true,
       typePaths: ['./**/*.graphql'],
       installSubscriptionHandlers: true,
+      cors:true
     }),
   ],
 })
