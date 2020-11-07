@@ -1,0 +1,13 @@
+type Mutation {
+  githubAuth(input: CreateGitHubAuthInput): GitHubAuthResult
+}
+
+type GitHubAuthResult {
+  access_token: String
+}
+
+input CreateGitHubAuthInput {
+  client_id: String
+  code: String
+  state: String
+}

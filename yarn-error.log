@@ -1,0 +1,88 @@
+Arguments: 
+  /usr/local/Cellar/node/14.13.1_1/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js start
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.13.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/mgerasika/git/docker-nestjs/package.json: Unexpected token } in JSON at position 798
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "nest-typescript-starter",
+    "version": "1.0.0",
+    "description": "Nest TypeScript starter repository",
+    "license": "MIT",
+    "scripts": {
+      "prebuild": "rimraf dist",
+      "build": "nest build",
+      "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+      "start": "nest start",
+      "start:dev": "nest start --watch",
+      "start:debug": "nest start --debug --watch",
+      "start:prod": "node dist/main",
+      "lint": "eslint '{src,apps,libs,test}/**/*.ts' --fix",
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "test:cov": "jest --coverage",
+      "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+      "test:e2e": "echo 'No e2e tests implemented yet.'",
+      "gen": "ts-node src/generate-typings",
+    },
+    "dependencies": {
+      "@nestjs/common": "7.4.4",
+      "@nestjs/core": "7.4.4",
+      "@nestjs/graphql": "7.7.0",
+      "@nestjs/platform-express": "7.4.4",
+      "apollo-server": "2.19.0",
+      "apollo-server-express": "2.19.0",
+      "class-transformer": "0.3.1",
+      "class-validator": "^0.12.2",
+      "graphql": "15.3.0",
+      "graphql-subscriptions": "1.1.0",
+      "reflect-metadata": "0.1.13",
+      "rimraf": "3.0.2",
+      "rxjs": "6.6.3",
+      "@nestjs/cli": "7.5.1"
+    },
+    "devDependencies": {
+      "@nestjs/schematics": "7.2.1",
+      "@nestjs/testing": "7.4.4",
+      "@types/express": "4.17.8",
+      "@types/node": "12.12.31",
+      "@types/supertest": "2.0.10",
+      "jest": "26.6.2",
+      "prettier": "2.1.2",
+      "supertest": "5.0.0",
+      "ts-jest": "26.4.1",
+      "ts-loader": "8.0.7",
+      "ts-node": "9.0.0",
+      "tsconfig-paths": "3.9.0",
+      "@typescript-eslint/eslint-plugin": "4.5.0",
+      "@typescript-eslint/parser": "4.5.0",
+      "eslint": "7.10.0",
+      "eslint-config-prettier": "6.11.0",
+      "eslint-plugin-import": "2.22.1",
+      "typescript": "4.0.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
