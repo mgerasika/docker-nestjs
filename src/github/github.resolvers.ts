@@ -3,7 +3,7 @@ import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { CreateGitHubAuthInput, GitHubAuthResult } from 'src/graphql.schema';
 import { GithubService } from './github.service';
 import {ConsoleService} from "../utils/console.service";
-import queryString from 'query-string';
+const queryString = require('query-string');
 
 //TODO move to env and to docker args
 const GITHUB_SECRET = 'db00752183955f7c36b5afae2ee337c2f34359c6';
