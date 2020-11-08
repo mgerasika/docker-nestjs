@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { Cat } from '../graphql.schema';
 
 @Injectable()
-export class UtilsService {
+export class ConsoleService {
+    log(message?: any, ...optionalParams: any[]) {
+        console.log(`cs:${message} ${optionalParams}`);
+    }
 }

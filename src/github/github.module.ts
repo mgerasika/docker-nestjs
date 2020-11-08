@@ -1,8 +1,10 @@
 import { HttpModule, Module } from '@nestjs/common';
 import { GithubResolvers } from './github.resolvers';
 import { GithubService } from './github.service';
+import {GithubController} from "./github.controller";
 
 @Module({
+  controllers: [GithubController],
   imports: [
     HttpModule.register({
       timeout: 5000,
