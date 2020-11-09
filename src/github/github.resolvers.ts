@@ -6,8 +6,19 @@ import {ConsoleService} from "../utils/console.service";
 const queryString = require('query-string');
 
 //TODO move to env and to docker args
-const GITHUB_SECRET = 'db00752183955f7c36b5afae2ee337c2f34359c6';
+const LOCALHOST_CLIENT_ID = '8f7ad4a059defb21a1b3';
+const LOCALHOST_SECRET = 'db00752183955f7c36b5afae2ee337c2f34359c6';
+const HEROKU_CLIENT_ID = '1756b603f7ed72b7b6a1';
+const HEROKU_SECRET = '8d5822030d04273185ebd771f2b6eb9725d127f8';
 
+const getClientSecret = (clientId:string) => {
+  if(clientId === LOCALHOST_CLIENT_ID) {
+    return LOCALHOST_SECRET;
+  }
+  if(clientId === HEROKU_CLIENT_ID) {
+    return HEROKU_SECRET;
+  }
+}
 @Resolver('Github')
 export class GithubResolvers {
   constructor(private readonly githubService: GithubService,private httpService:HttpService,private readonly consoleService:ConsoleService) {}
@@ -16,7 +27,7 @@ export class GithubResolvers {
   async create(@Args('input') args: CreateGitHubAuthInput) :Promise<GitHubAuthResult>{
     const response = await this.httpService.post('https://github.com/login/oauth/access_token', {
       client_id: args.client_id,
-      client_secret: GITHUB_SECRET,
+      client_secret: getClientSecret(args.client_id),
       code: args.code,
       state: args.state
     }).toPromise();
