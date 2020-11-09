@@ -18,7 +18,7 @@ const getClientSecret = (clientId:string) => {
   if(clientId === HEROKU_CLIENT_ID) {
     return HEROKU_SECRET;
   }
-}
+} 
 @Resolver('Github')
 export class GithubResolvers {
   constructor(private readonly githubService: GithubService,private httpService:HttpService,private readonly consoleService:ConsoleService) {}
