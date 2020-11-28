@@ -5,12 +5,14 @@ import { GithubModule } from './github/github.module';
 import {UtilsModule} from "./utils/utils.module";
 import {APP_INTERCEPTOR} from "@nestjs/core";
 import {LoggingInterceptor} from "./interceptors/logging.interceptor";
+import {VoyagerModule} from "./voyager/voyager.module";
 
 @Module({
   imports: [
     UtilsModule,
     CatsModule,
     GithubModule,
+    VoyagerModule,
     GraphQLModule.forRoot({
       playground:true,
       typePaths: ['./**/*.graphql'],
