@@ -5,10 +5,14 @@ import { GithubModule } from './github/github.module';
 import {UtilsModule} from "./utils/utils.module";
 import {APP_INTERCEPTOR} from "@nestjs/core";
 import {LoggingInterceptor} from "./interceptors/logging.interceptor";
-import {VoyagerModule} from "./voyager/voyager.module";
+import { VoyagerModule } from "./voyager/voyager.module";
+import { MongooseModule } from '@nestjs/mongoose';
+import { MongoCatsModule } from './mongo/cats.module';
 
 @Module({
-  imports: [
+	imports: [
+		MongooseModule.forRoot('mongodb://localhost/nest'),
+		MongoCatsModule,
     UtilsModule,
     CatsModule,
     GithubModule,

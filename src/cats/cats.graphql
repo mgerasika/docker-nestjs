@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
   createCat(createCatInput: CreateCatInput): Cat
+	createCat2(createCatInput: CreateCatInput): Cat
 }
 
 type Subscription {

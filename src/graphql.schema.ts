@@ -17,6 +17,11 @@ export class CreateGitHubAuthInput {
     state?: string;
 }
 
+export class MathInput {
+    x?: number;
+    y?: number;
+}
+
 export abstract class IQuery {
     abstract getCats(): Cat[] | Promise<Cat[]>;
 
@@ -26,7 +31,17 @@ export abstract class IQuery {
 export abstract class IMutation {
     abstract createCat(createCatInput?: CreateCatInput): Cat | Promise<Cat>;
 
+    abstract createCat2(createCatInput?: CreateCatInput): Cat | Promise<Cat>;
+
     abstract githubAuth(input?: CreateGitHubAuthInput): GitHubAuthResult | Promise<GitHubAuthResult>;
+
+    abstract sum(input?: MathInput): number | Promise<number>;
+
+    abstract diff(input?: MathInput): number | Promise<number>;
+
+    abstract multiply(input?: MathInput): number | Promise<number>;
+
+    abstract div(input?: MathInput): number | Promise<number>;
 }
 
 export abstract class ISubscription {

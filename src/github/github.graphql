@@ -1,5 +1,9 @@
 type Mutation {
   githubAuth(input: CreateGitHubAuthInput): GitHubAuthResult
+	sum(input: MathInput): Int
+	diff(input: MathInput): Int
+	multiply(input: MathInput): Int
+	div(input: MathInput): Int
 }
 
 type GitHubAuthResult {
@@ -10,4 +14,9 @@ input CreateGitHubAuthInput {
   client_id: String
   code: String
   state: String
+}
+
+input MathInput {
+  x: Int
+  y: Int
 }

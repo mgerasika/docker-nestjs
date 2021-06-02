@@ -1,6 +1,6 @@
 import {HttpException, HttpService, HttpStatus} from '@nestjs/common';
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
-import { CreateGitHubAuthInput, GitHubAuthResult } from 'src/graphql.schema';
+import { CreateGitHubAuthInput, GitHubAuthResult, MathInput } from 'src/graphql.schema';
 import { GithubService } from './github.service';
 import {ConsoleService} from "../utils/console.service";
 const queryString = require('query-string');
@@ -42,5 +42,26 @@ export class GithubResolvers {
     return {
       access_token: query.access_token as string
     }
-  }
+	}
+	
+	@Mutation('sum')
+	sum(@Args('input') args: MathInput): number {
+		debugger;
+		return args.x + args.y;
+	}
+
+	@Mutation('diff')
+	diff(@Args('input') args: MathInput): number {
+		return args.x - args.y;
+	}
+
+	@Mutation('multiply')
+	multiply(@Args('input') args: MathInput): number {
+		return args.x * args.y;
+	}
+
+	@Mutation('div')
+	div(@Args('input') args: MathInput): number {
+		return args.x / args.y;
+	}
 }
