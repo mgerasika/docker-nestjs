@@ -5,22 +5,8 @@ const params = {"operationName":"IntrospectionQuery","variables":{},"query":"que
 export class VoyagerService {
   constructor(private httpService:HttpService) {}
 
-  public async getDev() {
-    try {
-      console.log('dev before')
-      const result = await this.httpService.post("https://dev-api.dev.allhands.cloud/", params)
-      const r = await result.toPromise();
-      const str = JSON.stringify(r.data);
-      console.log('response = ', str);
-      return str;
-    }
-    catch (ex) {
-      console.log(ex)
-      return ex;
-    }
-  }
 
-  public async getDev2() {
+  public async getAH() {
     try {
       const result = await this.httpService.post("https://dev-api.dev.allhands.cloud/", params);
       const p = await result.toPromise();
@@ -30,9 +16,21 @@ export class VoyagerService {
       console.log(ex)
       return ex;
     }
+	}
+	
+	public async getSR() {
+    try {
+      const result = await this.httpService.post("https://gateway.ahs.allhands.cloud/", params);
+      const p = await result.toPromise();
+      return p.data;
+    }
+    catch (ex) {
+      console.log(ex)
+      return ex;
+    }
   }
 
-  public getStage() {
+  public getAHStage() {
     return this.httpService.get("https://stage-api.stage.allhands.cloud/");
   }
 }

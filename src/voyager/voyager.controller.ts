@@ -1,6 +1,4 @@
 import {Controller, Post,Get, Req, Res, UseInterceptors} from '@nestjs/common';
-import {join} from "path";
-import {LoggingInterceptor} from "../interceptors/logging.interceptor";
 import {VoyagerService} from "./voyager.service";
 
 @Controller('api/voyager')
@@ -8,19 +6,18 @@ export class VoyagerController {
     public constructor(private voyagerService:VoyagerService) {
     }
 
-    @Post("dev2")
-    async getDev2() {
-        return await this.voyagerService.getDev2();
+    @Post("ah")
+    async getAH() {
+        return await this.voyagerService.getAH();
     }
 
-    @Post("dev")
-    async getDev(@Req() req, @Res() res) {
-        const json = await this.voyagerService.getDev();
-        res.send(json);
+		@Post("sr")
+    async getSR() {
+        return await this.voyagerService.getSR();
     }
 
-    @Post("stage")
-    getStage(@Req() req, @Res() res) {
-        res.send(this.voyagerService.getStage());
+    @Post("ah-stage")
+    getAHStage(@Req() req, @Res() res) {
+        res.send(this.voyagerService.getAHStage());
     }
 }
