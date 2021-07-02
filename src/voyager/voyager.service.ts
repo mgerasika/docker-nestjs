@@ -28,6 +28,18 @@ export class VoyagerService {
       console.log(ex)
       return ex;
     }
+	}
+	
+	public async getCandide() {
+    try {
+      const result = await this.httpService.post("https://api.candidegardening.com/graphql", params);
+      const p = await result.toPromise();
+      return p.data;
+    }
+    catch (ex) {
+      console.log(ex)
+      return ex;
+    }
   }
 
   public getAHStage() {

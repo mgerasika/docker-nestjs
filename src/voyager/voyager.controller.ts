@@ -19,5 +19,10 @@ export class VoyagerController {
     @Post("ah-stage")
     getAHStage(@Req() req, @Res() res) {
         res.send(this.voyagerService.getAHStage());
+		}
+	
+		@Post("candide")
+    getCandide(@Req() req, @Res() res) {
+        res.send(this.voyagerService.getCandide());
     }
 }
