@@ -32,7 +32,7 @@ export class VoyagerService {
 	
 	public async getCandide() {
     try {
-      const result = await this.httpService.post("https://api.candidegardening.com/graphql", params);
+      const result = await this.httpService.post("https://api.candidegardening.com/graphql/", params);
       const p = await result.toPromise();
       return p.data;
     }
